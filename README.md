@@ -1,3 +1,39 @@
+# Filmpire - Movie App
+Built with React, Tailwind, Redux, TMDB
+
+# 
+
+## Movie Type Selection, with Trending Movie Banner
+<img width="960" alt="f1" src="https://user-images.githubusercontent.com/86062880/227999187-8b96fa50-0b41-455a-ac63-81e2ee1e9b0a.png">
+
+#
+
+## Movie List
+<img width="960" alt="f2" src="https://user-images.githubusercontent.com/86062880/227999426-fc2f7c4e-2739-4be0-af53-ea55cb08030d.png">
+
+#
+
+## Movie Description
+<img width="959" alt="f3" src="https://user-images.githubusercontent.com/86062880/227999906-19e786d1-c5e9-4f0a-8e51-91706034a33a.png">
+
+#
+
+## Actor Description
+<img width="960" alt="f4" src="https://user-images.githubusercontent.com/86062880/228000005-c9b84364-f486-4b30-a301-bfc30296a2ef.png">
+
+#
+
+## Actor's Movie Recommendations
+<img width="960" alt="f5" src="https://user-images.githubusercontent.com/86062880/228000168-8f6f6035-f07e-4346-93d9-2daa625f5c77.png">
+
+#
+
+## Profile - with Watchlisted and Favourite Movies
+<img width="960" alt="f6" src="https://user-images.githubusercontent.com/86062880/228000276-c84fc614-beaa-4d0f-bfd7-f142fc96835f.png">
+
+
+# 
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
