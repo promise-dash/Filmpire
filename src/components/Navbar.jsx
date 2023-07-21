@@ -47,7 +47,9 @@ const Navbar = () => {
 
   return (
     <nav className={`${mode==='dark' ? 'bg-[#272727]':'bg-[#1976D2]'} h-[60px] flex items-center justify-between text-white px-8 sticky top-0 z-30 shadow-lg`}>
-      {mode === 'dark' ? <BsFillSunFill className='text-lg cursor-pointer' onClick={handleClick}/> : <BsFillMoonFill className='text-lg cursor-pointer' onClick={handleClick}/>}
+      {mode === 'dark' ? 
+      <BsFillSunFill className='text-lg cursor-pointer' onClick={handleClick}/> :
+      <BsFillMoonFill className='text-lg cursor-pointer' onClick={handleClick}/>}
 
       <Search />
 
@@ -55,14 +57,14 @@ const Navbar = () => {
         { !isAuthenticated ? 
           (
             <button onClick={fetchToken} className='flex iems-center justify-center gap-2'>
-              <p className='text-sm'>LOGIN</p>
+              <p className='hidden md:block text-sm'>LOGIN</p>
               <MdAccountCircle className='text-xl '/>
             </button>
           ) 
           : (
             <button>
               <Link to={`/profile/${user.id}`} className='flex iems-center justify-center gap-2'>
-              <p className='text-sm'>MY MOVIES</p>
+              <p className='hidden md:block text-sm'>MY MOVIES</p>
                 <MdAccountCircle className='text-xl '/>
               </Link>
             </button>

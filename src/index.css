@@ -35,3 +35,7 @@ code {
   background: rgb(172, 172, 172);
   cursor: pointer;
 }
+.cast::-webkit-scrollbar {
+  display: none;
+}
+

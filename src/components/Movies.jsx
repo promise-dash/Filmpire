@@ -37,7 +37,7 @@ const Movies = () => {
     <>
       <Banner movies={data?.results}/>
       <br />
-      <div className='grid grid-cols-5 px-8 gap-6 pt-5 2xl:grid-cols-6'>
+      <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 px-8 gap-6 pt-5 2xl:grid-cols-6'>
       {data?.results?.slice(0, 20).map((movie, i) => {
         return (
           movie.poster_path && <Movie movie={movie} key={movie.id} i={i}/>

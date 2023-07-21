@@ -24,7 +24,7 @@ const Profile = () => {
   return (
     <div className='p-5'>
       <div className='flex items-center justify-between'>
-        <h3 className='text-2xl'>My Profile</h3>
+        <h3 className='text-2xl font-semibold'>My Profile</h3>
         <div className='flex gap-2 items-center'>
           <button className='text-inherit' onClick={logOut}>Logout</button>
           <BiExit />

@@ -31,7 +31,7 @@ const Sidebar = () => {
   }
 
   return (
-    <div className='basis-[20%] h-screen sticky top-0 overflow-y-scroll'>
+    <div className='hidden lg:block basis-[20%] h-screen sticky top-0 overflow-y-scroll'>
       <Link to={"/"} className='flex items-center justify-center'>
         <img src={mode === 'dark' ? redLogo : blueLogo} alt="Filmpire" className='mt-5 mb-6 w-[9rem]'/>
       </Link>

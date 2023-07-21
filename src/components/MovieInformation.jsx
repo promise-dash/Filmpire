@@ -92,16 +92,16 @@ const MovieInformation = () => {
 
   return (
     <div className='px-10 pt-5'>
-      <div className='flex'>
-        <div className='flex basis-2/6 justify-start'>
+      <div className='flex flex-col lg:flex-row'>
+        <div className='flex basis-2/6 justify-center lg:justify-start'>
           <img src={`${imageBaseUrl}${data?.poster_path}`} alt={`${data?.original_title}`} 
-          className='h-[26rem] rounded-2xl shadow-[10px_10px_11px_rgba(0,0,0,0.6)] 2xl:w-[31rem] 2xl:h-[46rem]'/>
+          className='h-[26rem] w-[18rem] rounded-2xl shadow-[10px_10px_11px_rgba(0,0,0,0.6)] 2xl:w-[31rem] 2xl:h-[46rem]'/>
         </div>
-        <div className='flex flex-col basis-4/6 pl-16'>
-          <h2 className='text-center text-[2.6rem] 2xl:text-[3rem]'>{data?.original_title} ({data?.release_date.substring(0,4)})</h2>
+        <div className='flex flex-col w-full lg:basis-4/6 lg:pl-16'>
+          <h2 className='text-center mt-5 lg:mt-0 text-[2rem] md:text-[2.6rem] 2xl:text-[3rem]'>{data?.original_title} ({data?.release_date.substring(0,4)})</h2>
           <h4 className='text-center text-xl mt-3 2xl:text-2xl'>{data?.tagline}</h4>
           <br /><br />
-          <div className='flex items-center justify-around'>
+          <div className='flex items-center flex-col lg:flex-row lg:justify-around'>
            <div className='flex gap-2 items-center'>
             <Rating readOnly value={data?.vote_average /2} precision={0.1} size={'small'}/>
             <span className='text-sm 2xl:text-xl'>{data?.vote_average}/10</span>
@@ -109,12 +109,12 @@ const MovieInformation = () => {
             <span className='2xl:text-xl'>{data?.runtime} min / {formatedDate} / {data.spoken_languages[0].name}</span>
           </div>
           <br />
-          <div className='flex items-center justify-evenly'>
+          <div className='flex items-center justify-center flex-col lg:flex-row lg:justify-evenly'>
             {data.genres.map(({id, name}) => {
               return(
                 <Link to={'/'} key={id} className='flex gap-3 items-center' onClick={() => dispatch(selectGenreOrCategory(id))}>
-                  <img src={genreIcons[name.toLowerCase()]} className='w-[25px] 2xl:w-[37px]' alt="" style={{filter: mode === 'dark' ? 'invert(100%)' : ''}}/>
-                  <span className='text-sm 2xl:text-[21px]'>{name}</span>
+                  <img src={genreIcons[name.toLowerCase()]} className='w-[15px] lg:w-[25px] 2xl:w-[37px]' alt="" style={{filter: mode === 'dark' ? 'invert(100%)' : ''}}/>
+                  <span className='text-[13px] lg:text-sm 2xl:text-[21px]'>{name}</span>
                 </Link>
               )
             })}
@@ -125,12 +125,12 @@ const MovieInformation = () => {
 
           <br />
           <h4 className='text-xl mb-2 2xl:text-2xl 2xl:mb-4'>Top Cast</h4>
-            <div className='grid grid-cols-6 overflow-x-auto'>
+            <div className='cast flex gap-3 overflow-scroll md:justify-between'>
               {data.credits.cast.map(({id, original_name, character, profile_path}) => {
                   return(
                     profile_path && 
                     (<Link to={`/actors/${id}`} key={id}>
-                        <img src={`${imageBaseUrl}${profile_path}`} alt="" className='w-[5rem] h-[6rem] object-cover rounded-xl 2xl:w-[80%] 2xl:h-[10rem]' />
+                        <img src={`${imageBaseUrl}${profile_path}`} alt="" className='min-w-[5rem] h-[6rem] object-cover rounded-xl 2xl:w-[80%] 2xl:h-[10rem]' />
                         <p className='text-sm'>{original_name}</p>
                         <small className='text-xs text-gray-600 2xl:text-sm' style={{color: mode === 'dark' ? 'gray': ''}}>{character.split('/')[0]}</small>
                       </Link>)
@@ -139,7 +139,7 @@ const MovieInformation = () => {
             </div>
             <br />
 
-            <div className='flex items-center justify-between'>
+            <div className='flex flex-col md:flex-row items-center justify-between'>
               <div className="grid grid-cols-3 2xl:h-[3rem] 2xl:gap-2 2xl:w-[40%]">
                 <button className='flex gap-2 items-center justify-center px-2 py-1.5 border-[#1976D2] border-[1.2px] text-[#1976D2] text-sm rounded-sm' style={{color: mode === 'dark' ? 'white': '', borderColor: mode==='dark' ? 'white': ''}}>
                   <a href={`${data?.homepage}`} target="blank" rel="noopener noreferrer" className='2xl:text-lg'>Website</a>
@@ -181,7 +181,7 @@ const MovieInformation = () => {
 
       <h4 className='text-center text-4xl'>You might also like</h4><br />
       {recommendedMovies ?
-       (<div className='grid grid-cols-6 px-8 gap-6 flex-wrap pt-5'>
+       (<div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 px-8 gap-6 flex-wrap pt-5'>
         {recommendedMovies.results.slice(0, 12).map((movie, i) => {
           return (
             movie.poster_path && <Movie movie={movie} key={i} i={i}/>

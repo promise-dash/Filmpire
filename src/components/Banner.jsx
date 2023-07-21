@@ -1,11 +1,21 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 
 const Banner = ({movies}) => {
+  // const[index, setIndex] = useState(0);
+  
     const imageBaseUrl = 'https://image.tmdb.org/t/p/original//';
     let randomIndex = (Math.floor(Math.random())*20);
+
+    // useEffect(() => {
+    //   const imageSlider = () => {
+    //     setInterval(())
+    //   }
+
+    //   imageSlider();
+    // }, []);
   return (
-    <div className='relative px-8 pt-5'>
+    <div className='hidden md:block relative px-8 pt-5'>
         <Link to={`/movie/${movies[randomIndex].id}`} className='relative'>
             <div className='w-full h-[25rem] rounded-lg 2xl:h-[35rem]' 
             style={{backgroundImage: `url(${imageBaseUrl}${movies[randomIndex].backdrop_path})`, backgroundPosition: 'center',backgroundSize: 'cover',backgroundRepeat: 'no-repeat'}}>
