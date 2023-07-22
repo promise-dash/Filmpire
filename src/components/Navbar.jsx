@@ -1,5 +1,6 @@
 import React ,{ useEffect, useState }from 'react'
 import {MdAccountCircle} from "react-icons/md"
+import {FiMenu} from "react-icons/fi"
 import { BsFillSunFill, BsFillMoonFill } from 'react-icons/bs'
 import { Link } from 'react-router-dom'
 import Search from './Search'
@@ -47,9 +48,13 @@ const Navbar = () => {
 
   return (
     <nav className={`${mode==='dark' ? 'bg-[#272727]':'bg-[#1976D2]'} h-[60px] flex items-center justify-between text-white px-8 sticky top-0 z-30 shadow-lg`}>
-      {mode === 'dark' ? 
-      <BsFillSunFill className='text-lg cursor-pointer' onClick={handleClick}/> :
-      <BsFillMoonFill className='text-lg cursor-pointer' onClick={handleClick}/>}
+      <div className='flex'>
+        {/* <FiMenu className='text-lg cursor-pointer'/> */}
+        {mode === 'dark' ? 
+          <BsFillSunFill className='text-lg cursor-pointer' onClick={handleClick}/> : 
+          <BsFillMoonFill className='text-lg cursor-pointer' onClick={handleClick}/>
+        }
+      </div>
 
       <Search />
 
